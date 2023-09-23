@@ -33,9 +33,25 @@ function UserSearch() {
 
   return (
     <div className="container grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
-        <FaGithub className="inline pr-2 mb-3" size={90} />
+       <div className="container flex">
+        <div>
+          <FaGithub className="inline mb-4 fill-stone-600" size={80} />
+        </div>
+        <div className="z-30">
+          <FaGithub className="inline mb-4 fill-stone-500" size={80} />
+        </div>
+        <div className="z-30">
+          <FaGithub className="inline mb-4 fill-stone-400" size={80} />
+        </div>
+        <div className="z-30">
+          <FaGithub className="inline mb-4 fill-stone-500" size={80} />
+        </div>
+        <div className="z-30">
+          <FaGithub className="inline mb-4 fill-stone-600" size={80} />
+        </div>
+       </div>
       <div>
-        <p className="bg-auto text-neutral-100 text-center text-xl font-bold pb-5">
+        <p className="bg-auto text-neutral-100 text-center text-xl text-stone-300 italic font-bold pb-5">
           Find a Developer/Repo
         </p>
         <form onSubmit={handleSubmit}>
