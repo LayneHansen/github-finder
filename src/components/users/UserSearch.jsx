@@ -2,7 +2,8 @@ import { useState, useContext } from "react";
 import GithubContext from "../../context/github/GithubContext";
 import AlertContext from "../../context/alert/AlertContext";
 import { searchUsers } from "../../context/github/GithubActions";
-import '../../index.css'
+import "../../index.css";
+import { FaGithub } from "react-icons/fa";
 // import Spinner from "../layout/Spinner";
 // import UserItem from "./UserItem";
 // import { Alert } from "react-daisyui";
@@ -12,7 +13,7 @@ function UserSearch() {
 
   const { users, dispatch } = useContext(GithubContext);
 
-  const {setAlert} = useContext(AlertContext)
+  const { setAlert } = useContext(AlertContext);
 
   const handleChange = (e) => setText(e.target.value);
 
@@ -20,20 +21,23 @@ function UserSearch() {
     e.preventDefault();
 
     if (text === "") {
-      setAlert('Please enter search text.', 'error')
+      setAlert("Please enter search text.", "error");
     } else {
-      dispatch({type: 'SET_LOADING'})
-      const users = await searchUsers(text)
-      dispatch({type: 'GET_USERS', payload: users})
+      dispatch({ type: "SET_LOADING" });
+      const users = await searchUsers(text);
+      dispatch({ type: "GET_USERS", payload: users });
 
       setText("");
     }
   };
 
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
+    <div className="container grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
+        <FaGithub className="inline pr-2 mb-3" size={90} />
       <div>
-      <p className="bg-auto text-neutral-100 text-center text-xl font-bold pb-5">Find a Developer/Repo</p>
+        <p className="bg-auto text-neutral-100 text-center text-xl font-bold pb-5">
+          Find a Developer/Repo
+        </p>
         <form onSubmit={handleSubmit}>
           <div className="form-control">
             <div className="relative">
@@ -58,7 +62,10 @@ function UserSearch() {
       </div>
       <div>
         {users.length > 0 && (
-          <button onClick={() => dispatch({type: 'CLEAR_USERS'})} className="btn btn-ghost btn-lg">
+          <button
+            onClick={() => dispatch({ type: "CLEAR_USERS" })}
+            className="btn btn-ghost btn-lg"
+          >
             Clear
           </button>
         )}
