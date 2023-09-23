@@ -2,9 +2,10 @@ import { useState, useContext } from "react";
 import GithubContext from "../../context/github/GithubContext";
 import AlertContext from "../../context/alert/AlertContext";
 import { searchUsers } from "../../context/github/GithubActions";
-import Spinner from "../layout/Spinner";
-import UserItem from "./UserItem";
-import { Alert } from "react-daisyui";
+import '../../index.css'
+// import Spinner from "../layout/Spinner";
+// import UserItem from "./UserItem";
+// import { Alert } from "react-daisyui";
 
 function UserSearch() {
   const [text, setText] = useState("");
@@ -32,6 +33,7 @@ function UserSearch() {
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
       <div>
+      <p className="bg-auto text-neutral-100 text-center text-xl font-bold pb-5">Find a Developer/Repo</p>
         <form onSubmit={handleSubmit}>
           <div className="form-control">
             <div className="relative">
