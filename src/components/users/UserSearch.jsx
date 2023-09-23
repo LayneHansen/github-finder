@@ -39,14 +39,16 @@ function UserSearch() {
             <div className="relative">
               <input
                 type="text"
-                className="w-full pr-40 bg-gray-200 input input-lg text-black"
+                className="w-full pr-40 border-stone-400 border-2 border-double input input-lg 
+                  text-stone-400 hover:border-stone-200 hover:bg-emerald-800 hover:text-stone-200"
                 placeholder="Search"
                 value={text}
                 onChange={handleChange}
               />
               <button
                 type="submit"
-                className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg"
+                className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg border-stone-400 border-2
+                hover:border-stone-200 hover:bg-emerald-800"
               >
                 Go
               </button>
